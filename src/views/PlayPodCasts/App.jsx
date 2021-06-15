@@ -1,32 +1,58 @@
-import './App.scss';
+import React, { useState, useEffect } from 'react';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+
+import HomeCard from '../../components/HomeCard';
+import PodCastPlay from '../../components/PodCastPlay';
+
+import axios from 'axios';
+
 
 function App() {
+  const [onEpisode, setOnEpisode] = useState(false)
+
+  const [allEpisodes, setAllEpisodes] = useState([])
+
+  useEffect(() => {
+
+    getAllDetails()
+
+  }, [])
+
+  async function getAllDetails() {
+    axios.get('https://api-frontend-test.brlogic.com/podcast/details.json')
+      .then((e) => {
+        setAllEpisodes(e.data.episodes)
+      })
+  }
+  
+
   return (
-    <div className="containerListPodCast">
-      <div className="banner">
-        <div className="texts">
-          <h1>Podlogic</h1>
-          <h4>6 episódios</h4>
-        </div>
-      </div>
-      <div className="listPodCast">
+    <Router>
 
-        <div className="descriptionPodCast">
-          <p>SOBRE O PODCAST</p>
-          <h4>
-            Somos um grupo de amigos que gosta de se reunir e trocar ideias sobre
-            como o mundo está transitando entre o antigo e o novo e tudo o que está mudando.
-            Falamos sobre tecnologia, trabalho, lazer e nerdices.
-          </h4>
-          <p>Ler mais <i className="fas fa-chevron-down"></i></p>
-        </div>
+      <Switch>
+        <Route path="/" exact render={() => {
+          return (
+            <div className='container'>
+              <HomeCard onEpisode={onEpisode} setOnEpisode={setOnEpisode} allEpisodes={allEpisodes} />
+            </div>
+          )
+        }} />
+      </Switch>
 
-        <div className="listEpisodes">
-          <p>LISTA DE EPISÓDIOS</p>
-        </div>
-
-      </div>
-    </div>
+      <Switch>
+        <Route path="/:id" render={() => {
+          return (
+            <PodCastPlay onEpisode={onEpisode} setOnEpisode={setOnEpisode} allEpisodes={allEpisodes} />
+          )
+        }} />
+      </Switch>
+    </Router>
   );
 }
 
