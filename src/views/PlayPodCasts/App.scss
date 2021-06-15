@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,700;1,500;1,700&display=swap');
+
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
+.containerListPodCast{
+  display: flex;
+  width: 768px;
+  background-color: #27657F;
+  border-radius: 10px;
+
+  .banner{
+    height: 418px;
+    width: 315px;
+    background: url('../../imgs/banner_podcast.png');
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+
+    .texts{
+      padding: 24px;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(68, 68, 68, 0) 0%, rgba(68, 68, 68, 0.72) 100%);
+    }
+
+    h1, h4{
+      color: #ffffff;
+      font-style: italic;
+    }
+  }
+
+  .listPodCast{
+    height: 418px;
+    width: 453px;
+    display: flex;
+    flex-direction: column;
+
+    .descriptionPodCast{
+      margin: 24px;
+      p:nth-child(1){
+        color: #ffffff93;
+        font-size: 8px;
+        letter-spacing: 2px;
+        margin-bottom: 11px;
+        cursor: inherit;
+        font-style: normal;
+      }
+      h4{
+        color: #ffffff93;
+        font-weight: 500;
+        font-style: italic;
+        height: 67px;
+        width: 85%;
+        overflow: hidden;
+        background: linear-gradient(to top, rgba(45, 86, 103, .7) 3%, #2d566700 10%);
+      }
+      p{
+        color: #4DC1F2;
+        font-style: italic;
+        margin-top: 8px;
+        cursor: pointer;
+
+        i{
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .listEpisodes{
+      margin-left: 24px;
+      p{
+        color: #ffffff93;
+        font-size: 8px;
+        letter-spacing: 2px;
+        margin-bottom: 11px;
+        cursor: inherit;
+      }
+    }
+
+
+
+  }
+}
