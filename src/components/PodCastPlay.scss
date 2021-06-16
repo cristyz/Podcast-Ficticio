@@ -10,6 +10,74 @@
     transition: .3s;
     padding: 28px 32px;
     position: relative;
+    flex-direction: column;
+
+    .containerPlayer{
+      display: flex;
+
+      audio{
+        background-color: red;
+        
+      }
+
+      .playerButtons{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .playButton{
+          background-color: #2FA0D0;
+          padding: 20px;
+          border-radius: 50%;
+          border: none;
+          display: flex;
+          color: #ffffff;
+          cursor: pointer;
+        }
+
+        .secondsButtons{
+          background-color: #ffffff;
+          padding: 10px;
+          border-radius: 50%;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #2FA0D0;
+          cursor: pointer;
+        }
+
+      }
+      .countTime{
+        display: flex;
+        min-width: 520px;
+        align-items: center;
+        justify-content: center;
+        p{
+          color: #ffffff80;
+        }
+        .progressBar{
+          width: 90%;
+          height: 6px;
+          position: relative;
+          border-radius: 4px;
+          background-color: #ffffff33;
+          margin: 0 12px;
+
+          .progressBarTime{
+            position: absolute;
+            width: 50%;
+            left: 0;
+            top: 0;
+            height: 6px;
+            background-color: #2FA0D0;
+            border-radius: 4px;
+            // transition: .2s;
+          }
+        }
+      }
+    }
 
     .podCastTexts{
         .participantes{
@@ -31,6 +99,7 @@
     }
     .podCastDetails{
         display: flex;
+        height: 310px;
         img{
             width: 250px;
             height: 250px;

@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom'
 
 const HomeCard = ({ onEpisode, setOnEpisode, allEpisodes }) => {
 
+  const calculateTime = (secs) => {
+    const minutes = Math.floor(secs / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${returnedMinutes}:${returnedSeconds}`;
+  }
+
 
 
   return (
@@ -41,7 +49,7 @@ const HomeCard = ({ onEpisode, setOnEpisode, allEpisodes }) => {
 
                   <div className="detailsItem">
                     <h4>Episódio {e.episodeNumber} - {e.name}</h4>
-                    <p>{e.duration}</p>
+                    <p>{calculateTime(e.duration)}</p>
                   </div>
                 </Link>
               )
