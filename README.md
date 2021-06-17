@@ -1,7 +1,7 @@
 # Copy the repository
 
 ```
-$ git clone cristyz/Podcast-Ficticio
+$ git clone https://github.com/cristyz/Podcast-Ficticio
 ```
 
 ## Install dependencies
