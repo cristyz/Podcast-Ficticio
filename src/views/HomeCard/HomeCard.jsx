@@ -27,6 +27,7 @@ const HomeCard = () => {
   return (
     <div className="containerListPodCast">
 
+
       <Banner data={data} />
 
       <div className="listPodCast">

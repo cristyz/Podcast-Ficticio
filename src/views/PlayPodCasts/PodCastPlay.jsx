@@ -14,6 +14,8 @@ import getEpisodeNumber from '../../functions/getEpisodeNumber';
 // Components
 import DescriptionEpisode from '../../components/PodCastPlay/DescriptionEpisode';
 import Player from '../../components/PodCastPlay/Player';
+import LoaderComponent from '../../components/LoaderComponent/LoaderComponent';
+
 
 
 const PodCastPlay = () => {
@@ -30,8 +32,10 @@ const PodCastPlay = () => {
 
 
     useEffect(() => {
-        getEpisodeDetails(setEpisodeDetails, id)
-        getEpisodeNumber(id, setAntEpi, setProxEpi)
+        setTimeout(() => {
+            getEpisodeDetails(setEpisodeDetails, id)
+            getEpisodeNumber(id, setAntEpi, setProxEpi)
+        }, 1500)
     }, [id])
 
 
@@ -40,7 +44,7 @@ const PodCastPlay = () => {
 
             <Link to='/' className="closetButton"><IoMdClose /></Link>
 
-            {episodeDetails?
+            {episodeDetails ?
                 (
                     <div className="podCastDetails">
                         <img src={episodeDetails.cover} alt='Banner' />
@@ -48,11 +52,11 @@ const PodCastPlay = () => {
                         <DescriptionEpisode episodeDetails={episodeDetails} />
 
                     </div>
-                ) : null
+                ) : <LoaderComponent />
             }
 
 
-            {episodeDetails?
+            {episodeDetails ?
 
                 <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} proxEpi={proxEpi} antEpi={antEpi} />
                 : null

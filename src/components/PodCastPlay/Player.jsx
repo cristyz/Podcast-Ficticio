@@ -42,7 +42,7 @@ export default function Player({ AudioPlay, episodeDetails, proxEpi, antEpi }) {
                     <input className="InputProgressBar" type="range" onChange={(e) => {
                         setCurrentTime(e.target.value)
                         AudioPlay.current.currentTime = e.target.value
-                    }} max={AudioPlay?.current?.duration} />
+                    }} max={isNaN(AudioPlay?.current?.duration) ? 0 : AudioPlay?.current?.duration} />
 
                 </div>
                 <p>{calculateTime(episodeDetails.duration)}</p>
