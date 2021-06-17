@@ -9,6 +9,7 @@ import { IoMdClose } from 'react-icons/io';
 
 // Functions
 import getEpisodeDetails from '../../functions/getEpisodeDetails';
+import getEpisodeNumber from '../../functions/getEpisodeNumber';
 
 // Components
 import DescriptionEpisode from '../../components/PodCastPlay/DescriptionEpisode';
@@ -20,6 +21,8 @@ const PodCastPlay = () => {
 
     // State
     const [episodeDetails, setEpisodeDetails] = useState(null)
+    const [proxEpi, setProxEpi] = useState(null)
+    const [antEpi, setAntEpi] = useState(null)
 
 
     // Ref
@@ -28,6 +31,7 @@ const PodCastPlay = () => {
 
     useEffect(() => {
         getEpisodeDetails(setEpisodeDetails, id)
+        getEpisodeNumber(id, setAntEpi, setProxEpi)
     }, [id])
 
 
@@ -50,7 +54,7 @@ const PodCastPlay = () => {
 
             {episodeDetails?
 
-                <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} />
+                <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} proxEpi={proxEpi} antEpi={antEpi} />
                 : null
             }
         </div>

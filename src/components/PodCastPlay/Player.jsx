@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react"
+
+import { Link } from "react-router-dom";
+
 import calculateTime from "../../functions/calculateTime"
 
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { TiArrowRightThick, TiArrowLeftThick } from 'react-icons/ti';
 
-export default function Player({AudioPlay, episodeDetails}) {
+export default function Player({ AudioPlay, episodeDetails, proxEpi, antEpi }) {
+
     const [currentTime, setCurrentTime] = useState(0)
     const [play, setPlay] = useState(true)
 
@@ -48,9 +52,11 @@ export default function Player({AudioPlay, episodeDetails}) {
 
 
             <div className="playerButtons">
-                <button className="secondsButtons">
-                    <TiArrowLeftThick />
-                </button>
+                {antEpi === undefined ? null :
+                    <Link to={'/' + antEpi} className="secondsButtons">
+                        <TiArrowLeftThick />
+                    </Link>
+                }
 
                 <button
                     className="playButton"
@@ -59,9 +65,11 @@ export default function Player({AudioPlay, episodeDetails}) {
                     {play ? <FaPlay /> : <FaPause />}
                 </button>
 
-                <button className="secondsButtons">
-                    <TiArrowRightThick />
-                </button>
+                {proxEpi === undefined ? null :
+                    <Link to={'/' + proxEpi} className="secondsButtons">
+                        <TiArrowRightThick />
+                    </Link>
+                }
 
             </div>
         </div>
