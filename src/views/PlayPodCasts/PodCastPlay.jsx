@@ -4,15 +4,15 @@ import './PodCastPlay.scss'
 
 import { useParams, Link } from "react-router-dom";
 
-import { FaPlay, FaPause } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
-import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
-import { TiArrowRightThick, TiArrowLeftThick } from 'react-icons/ti';
+
 
 // Functions
-import calculateTime from '../../functions/calculateTime';
 import getEpisodeDetails from '../../functions/getEpisodeDetails';
 
+// Components
+import DescriptionEpisode from '../../components/PodCastPlay/DescriptionEpisode';
+import Player from '../../components/PodCastPlay/Player';
 
 
 const PodCastPlay = () => {
@@ -20,41 +20,15 @@ const PodCastPlay = () => {
 
     // State
     const [episodeDetails, setEpisodeDetails] = useState(null)
-    const [lerMais, setLerMais] = useState(false)
 
-
-    const [play, setPlay] = useState(true)
-    const [currentTime, setCurrentTime] = useState(0)
 
     // Ref
     const AudioPlay = useRef()
 
-    // Functions
-    const tooglePlayPause = () => {
-        setPlay(!play)
-
-        if (play) {
-            AudioPlay.current.play()
-        } else {
-            AudioPlay.current.pause()
-        }
-    }
-
-
 
     useEffect(() => {
         getEpisodeDetails(setEpisodeDetails, id)
-
-        // Verificar e mover play de video
-        let verifyBarProgress = setInterval(() => {
-            setCurrentTime(AudioPlay?.current?.currentTime);
-        }, 1000)
-
-        return () => {
-            clearInterval(verifyBarProgress)
-        }
-        
-    }, [])
+    }, [id])
 
 
     return (
@@ -62,78 +36,22 @@ const PodCastPlay = () => {
 
             <Link to='/' className="closetButton"><IoMdClose /></Link>
 
-            {episodeDetails != null ?
+            {episodeDetails?
                 (
                     <div className="podCastDetails">
                         <img src={episodeDetails.cover} alt='Banner' />
 
-                        <div className="podCastTexts">
-                            <div className="descriptionPodCast">
-                                <h1>Episódio {episodeDetails.episodeNumber} - {episodeDetails.name}</h1>
-                                <h4 style={{
-                                    height: lerMais ? '50%' : '47px',
-                                    background: lerMais ? 'none' : null,
-                                    overflow: lerMais ? 'scroll' : null
-                                }}>
-                                    {episodeDetails.description}
-                                </h4>
-                                <p className="lermais" onClick={() => {
-                                    setLerMais(!lerMais)
-                                }}>Ler {lerMais ? 'menos' : 'mais'} {lerMais ? <BsChevronUp /> : <BsChevronDown />}</p>
-                                <p className='participantes'>
-                                    Participantes: {episodeDetails.participants.map(e => {
-                                        return <span key={e}> {e} -</span>
-                                    })}
-                                </p>
-                            </div>
-
-                        </div>
-
+                        <DescriptionEpisode episodeDetails={episodeDetails} />
 
                     </div>
                 ) : null
             }
 
 
-            {episodeDetails != null ?
-                (
-                    <div className="containerPlayer">
-                        <div className="countTime">
-                            <p>{calculateTime(currentTime)}</p>
-                            <div className="progressBar">
-                                <div style={{ width: `${currentTime / AudioPlay?.current?.duration * 100}%` }} className="progressBarTime"></div>
+            {episodeDetails?
 
-                                <input className="InputProgressBar" type="range" onChange={(e) => {
-                                    setCurrentTime(e.target.value)
-                                    AudioPlay.current.currentTime = e.target.value
-                                }} max={AudioPlay?.current?.duration} />
-
-                            </div>
-                            <p>{calculateTime(episodeDetails.duration)}</p>
-                        </div>
-
-                        <audio ref={AudioPlay} src={episodeDetails.audio} ></audio>
-
-
-                        <div className="playerButtons">
-                            <button className="secondsButtons">
-                                <TiArrowLeftThick />
-                            </button>
-
-                            <button
-                                className="playButton"
-                                onClick={tooglePlayPause}
-                            >
-                                {play ? <FaPlay /> : <FaPause />}
-                            </button>
-
-                            <button className="secondsButtons">
-                                <TiArrowRightThick />
-                            </button>
-
-                        </div>
-                    </div>
-                ) : null
+                <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} />
+                : null
             }
         </div>
     )

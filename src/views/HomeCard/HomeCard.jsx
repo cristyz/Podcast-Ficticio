@@ -6,9 +6,9 @@ import './HomeCard.scss';
 import getAllDetails from '../../functions/getAllDetails';
 
 // Components
-import Banner from '../../components/Banner';
-import ListEpisodes from '../../components/ListEpisodes';
-import DescriptionPodCast from '../../components/Description';
+import Banner from '../../components/HomeCard/Banner';
+import ListEpisodes from '../../components/HomeCard/ListEpisodes';
+import DescriptionPodCast from '../../components/HomeCard/Description';
 
 
 const HomeCard = () => {
@@ -44,7 +44,7 @@ const HomeCard = () => {
         </div>
 
       </div>
-      
+
     </div>
   );
 }

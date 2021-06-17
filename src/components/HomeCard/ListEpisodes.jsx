@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import calculateTime from "../functions/calculateTime"
+
+import calculateTime from '../../functions/calculateTime'
+
 
 export default function ListEpisodes({ allEpisodes }) {
     return (
@@ -21,7 +23,4 @@ export default function ListEpisodes({ allEpisodes }) {
 
         </div>
     )
-
-
-
 }
