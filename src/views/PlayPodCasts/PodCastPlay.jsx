@@ -9,9 +9,13 @@ import { IoMdClose } from 'react-icons/io';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import { TiArrowRightThick, TiArrowLeftThick } from 'react-icons/ti';
 
-import axios from 'axios';
+// Functions
+import calculateTime from '../../functions/calculateTime';
+import getEpisodeDetails from '../../functions/getEpisodeDetails';
 
-const PodCastPlay = ({ allEpisodes }) => {
+
+
+const PodCastPlay = () => {
     const { id } = useParams();
 
     // State
@@ -35,23 +39,11 @@ const PodCastPlay = ({ allEpisodes }) => {
             AudioPlay.current.pause()
         }
     }
-    const calculateTime = (secs) => {
-        const minutes = Math.floor(secs / 60);
-        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-        const seconds = Math.floor(secs % 60);
-        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-        return `${returnedMinutes}:${returnedSeconds}`;
-    }
 
 
-    const filterEpisode = allEpisodes.filter(e => e.id == id)
-    const episode = filterEpisode[0]
 
     useEffect(() => {
-        axios.get(episode.details)
-            .then(e => {
-                setEpisodeDetails(e.data)
-            })
+        getEpisodeDetails(setEpisodeDetails, id)
 
         // Verificar e mover play de video
         let verifyBarProgress = setInterval(() => {
@@ -61,10 +53,8 @@ const PodCastPlay = ({ allEpisodes }) => {
         return () => {
             clearInterval(verifyBarProgress)
         }
-
+        
     }, [])
-
-
 
 
     return (

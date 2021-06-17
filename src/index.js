@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './views/PlayPodCasts/App.jsx';
+import App from './views/App.jsx';
 
 ReactDOM.render(
   <React.StrictMode>

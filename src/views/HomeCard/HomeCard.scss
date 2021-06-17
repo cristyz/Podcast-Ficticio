@@ -15,14 +15,24 @@
 	.banner {
 		height: 418px;
 		width: 315px;
-		background: url("../imgs/banner_podcast.png");
-		background-size: cover;
 		display: flex;
 		align-items: flex-end;
+		position: relative;
+
+		img{
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 10px 0 0 10px;
+
+		}
 
 		.texts {
 			padding: 24px;
 			width: 100%;
+			z-index: 10;
+			border-radius: 0 0 0 10px;
 			background: linear-gradient(
 				180deg,
 				rgba(68, 68, 68, 0) 0%,
@@ -141,6 +151,7 @@
 }
 
 @media (max-width: 800px) {
+	
 	.containerListPodCast {
 		flex-direction: column;
 		width: 100%;
@@ -149,6 +160,14 @@
 		.banner {
 			width: 100%;
 			height: 331px;
+
+			img{
+				border-radius: 0;
+			}
+
+			.texts{
+				border-radius: 0;
+			}
 		}
 
 		.listPodCast {
