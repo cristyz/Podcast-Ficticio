@@ -1,8 +1,17 @@
 import './HomeCard.scss';
 
+import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 
 const HomeCard = ({ onEpisode, setOnEpisode, allEpisodes }) => {
+
+  const [lerMais, setLerMais] = useState(false)
+
+
+
+  
 
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
@@ -15,7 +24,7 @@ const HomeCard = ({ onEpisode, setOnEpisode, allEpisodes }) => {
 
 
   return (
-    <div className="containerListPodCast" style={{ opacity: onEpisode ? '0' : '1', display: onEpisode ? 'none' : 'flex' }}>
+    <div className="containerListPodCast">
       <div className="banner">
         <div className="texts">
           <h1>Podlogic</h1>
@@ -26,12 +35,17 @@ const HomeCard = ({ onEpisode, setOnEpisode, allEpisodes }) => {
 
         <div className="descriptionPodCast">
           <p>SOBRE O PODCAST</p>
-          <h4>
+          <h4 style={{
+            height: lerMais ? '110px' : '67px',
+            background: lerMais ? 'none' : null
+        }}>
             Somos um grupo de amigos que gosta de se reunir e trocar ideias sobre
             como o mundo está transitando entre o antigo e o novo e tudo o que está mudando.
             Falamos sobre tecnologia, trabalho, lazer e nerdices.
           </h4>
-          <p>Ler mais <i className="fas fa-chevron-down"></i></p>
+          <p onClick={() => {
+            setLerMais(!lerMais)
+          }}>Ler {lerMais ? 'menos' : 'mais'} {lerMais ? <BsChevronUp /> : <BsChevronDown />}</p>
         </div>
 
         <div className="listParagrafh">
