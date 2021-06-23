@@ -3,7 +3,7 @@ import { useState } from "react"
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 
 
-export default function DescriptionEpisode({episodeDetails}) {
+export default function DescriptionEpisode({ episodeDetails }) {
 
     const [lerMais, setLerMais] = useState(false)
 
@@ -23,9 +23,10 @@ export default function DescriptionEpisode({episodeDetails}) {
                     setLerMais(!lerMais)
                 }}>Ler {lerMais ? 'menos' : 'mais'} {lerMais ? <BsChevronUp /> : <BsChevronDown />}</p>
                 <p className='participantes'>
-                    Participantes: {episodeDetails.participants.map(e => {
-                        return <span key={e}> {e} -</span>
-                    })}
+                    {/* Primeiro cochete retorna todos os participantes até o antepenultimo */}
+                    {/* Segundo cochete retorna o penultimo participante */}
+                    {/* Terceito cochete retorna a letra 'e' caso o array seja maior que 1 */}
+                    Participantes: {episodeDetails.participants.slice(0, -2,).map(e => `${e},`)} {episodeDetails.participants.slice(-2, -1)} {episodeDetails.participants.length <= 1 ? null : 'e'} {episodeDetails.participants.slice(-1)}
                 </p>
             </div>
         </div>
