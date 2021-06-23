@@ -5,7 +5,7 @@ import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 
 export default function DescriptionEpisode({ episodeDetails }) {
 
-    const [lerMais, setLerMais] = useState(false)
+    const [readMore, setReadMore] = useState(false)
 
 
     return (
@@ -13,15 +13,15 @@ export default function DescriptionEpisode({ episodeDetails }) {
             <div className="descriptionPodCast">
                 <h1>Episódio {episodeDetails.episodeNumber} - {episodeDetails.name}</h1>
                 <h4 style={{
-                    height: lerMais ? '50%' : '47px',
-                    background: lerMais ? 'none' : null,
-                    overflow: lerMais ? 'scroll' : null
+                    height: readMore ? '50%' : '47px',
+                    background: readMore ? 'none' : null,
+                    overflow: readMore ? 'scroll' : null
                 }}>
                     {episodeDetails.description}
                 </h4>
                 <p className="lermais" onClick={() => {
-                    setLerMais(!lerMais)
-                }}>Ler {lerMais ? 'menos' : 'mais'} {lerMais ? <BsChevronUp /> : <BsChevronDown />}</p>
+                    setReadMore(!readMore)
+                }}>Ler {readMore ? 'menos' : 'mais'} {readMore ? <BsChevronUp /> : <BsChevronDown />}</p>
                 <p className='participantes'>
                     {/* Primeiro cochete retorna todos os participantes até o antepenultimo */}
                     {/* Segundo cochete retorna o penultimo participante */}

@@ -38,11 +38,7 @@ const HomeCard = () => {
           <p>LISTA DE EPISÓDIOS</p>
         </div>
 
-        <div className="containerListEpisodes">
-
-          <ListEpisodes allEpisodes={allEpisodes} />
-
-        </div>
+        <ListEpisodes allEpisodes={allEpisodes} />
 
       </div>
 

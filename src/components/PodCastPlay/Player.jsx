@@ -7,7 +7,7 @@ import calculateTime from "../../functions/calculateTime"
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { TiArrowRightThick, TiArrowLeftThick } from 'react-icons/ti';
 
-export default function Player({ AudioPlay, episodeDetails, proxEpi, antEpi }) {
+export default function Player({ AudioPlay, episodeDetails, nextEpisode, previousEpisode }) {
 
     const [currentTime, setCurrentTime] = useState(0)
     const [play, setPlay] = useState(true)
@@ -52,8 +52,8 @@ export default function Player({ AudioPlay, episodeDetails, proxEpi, antEpi }) {
 
 
             <div className="playerButtons">
-                {antEpi === undefined ? null :
-                    <Link to={'/' + antEpi} className="secondsButtons">
+                {previousEpisode === undefined ? null :
+                    <Link to={'/' + previousEpisode} className="secondsButtons">
                         <TiArrowLeftThick />
                     </Link>
                 }
@@ -65,8 +65,8 @@ export default function Player({ AudioPlay, episodeDetails, proxEpi, antEpi }) {
                     {play ? <FaPlay /> : <FaPause />}
                 </button>
 
-                {proxEpi === undefined ? null :
-                    <Link to={'/' + proxEpi} className="secondsButtons">
+                {nextEpisode === undefined ? null :
+                    <Link to={'/' + nextEpisode} className="secondsButtons">
                         <TiArrowRightThick />
                     </Link>
                 }

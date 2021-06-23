@@ -6,6 +6,8 @@ import calculateTime from '../../functions/calculateTime'
 
 export default function ListEpisodes({ allEpisodes }) {
     return (
+        <div className="containerListEpisodes">
+
         <div className="listEpisodes">
 
             {allEpisodes.map(e => {
@@ -20,6 +22,7 @@ export default function ListEpisodes({ allEpisodes }) {
                     </Link>
                 )
             })}
+        </div>
 
         </div>
     )

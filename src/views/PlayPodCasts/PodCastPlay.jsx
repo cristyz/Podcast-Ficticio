@@ -6,7 +6,6 @@ import { useParams, Link } from "react-router-dom";
 
 import { IoMdClose } from 'react-icons/io';
 
-
 // Functions
 import getEpisodeDetails from '../../functions/getEpisodeDetails';
 import getEpisodeNumber from '../../functions/getEpisodeNumber';
@@ -16,28 +15,23 @@ import DescriptionEpisode from '../../components/PodCastPlay/DescriptionEpisode'
 import Player from '../../components/PodCastPlay/Player';
 import LoaderComponent from '../../components/LoaderComponent/LoaderComponent';
 
-
-
 const PodCastPlay = () => {
     const { id } = useParams();
 
     // State
     const [episodeDetails, setEpisodeDetails] = useState(null)
-    const [proxEpi, setProxEpi] = useState(null)
-    const [antEpi, setAntEpi] = useState(null)
-
+    const [nextEpisode, setNextEpisode] = useState(null)
+    const [previousEpisode, setPreviousEpisode] = useState(null)
 
     // Ref
     const AudioPlay = useRef()
 
-
     useEffect(() => {
         setTimeout(() => {
             getEpisodeDetails(setEpisodeDetails, id)
-            getEpisodeNumber(id, setAntEpi, setProxEpi)
+            getEpisodeNumber(id, setPreviousEpisode, setNextEpisode)
         }, 1500)
     }, [id])
-
 
     return (
         <div className="containerPodCastPlayer" >
@@ -46,21 +40,20 @@ const PodCastPlay = () => {
 
             {episodeDetails ?
                 (
+                    <>
                     <div className="podCastDetails">
                         <img src={episodeDetails.cover} alt='Banner' />
 
                         <DescriptionEpisode episodeDetails={episodeDetails} />
 
                     </div>
-                ) : <LoaderComponent />
+                    <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} nextEpisode={nextEpisode} previousEpisode={previousEpisode} />
+                    </>
+                ) 
+                :
+                <LoaderComponent />
             }
-
-
-            {episodeDetails ?
-
-                <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} proxEpi={proxEpi} antEpi={antEpi} />
-                : null
-            }
+            
         </div>
     )
 }
