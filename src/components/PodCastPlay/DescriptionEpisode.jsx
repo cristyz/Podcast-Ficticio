@@ -7,7 +7,6 @@ export default function DescriptionEpisode({ episodeDetails }) {
 
     const [readMore, setReadMore] = useState(false)
 
-
     return (
         <div className="podCastTexts">
             <div className="descriptionPodCast">
@@ -17,7 +16,8 @@ export default function DescriptionEpisode({ episodeDetails }) {
                     background: readMore ? 'none' : null,
                     overflow: readMore ? 'scroll' : null
                 }}>
-                    {episodeDetails.description}
+                    {/* Transforma a descrição em um array dividido pelos '.' e adiciona a ela quebra de linha */}
+                    {episodeDetails.description.split('.').slice(0, -1).map(e => <span key={e}>  {e + '.'} <br></br> <br></br> </span>)} {episodeDetails.description.split('.').slice(-1).map(e => <span key={e}> {e} </span>)}
                 </h4>
                 <p className="lermais" onClick={() => {
                     setReadMore(!readMore)

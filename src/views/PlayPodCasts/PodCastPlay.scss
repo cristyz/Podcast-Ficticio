@@ -104,10 +104,9 @@
 	.closetButton {
 		position: absolute;
 		right: 20px;
-		top: 20px;
-		font-size: 25px;
+		top: 15px;
+		font-size: 35px;
 		cursor: pointer;
-		background-color: #15475b;
 		border-radius: 50%;
 		display: flex;
 		justify-content: center;
@@ -153,6 +152,7 @@
 				color: #ffffff93;
 				font-weight: 500;
 				font-style: italic;
+				margin-top: 20px;
 				width: 85%;
 				overflow: hidden;
 				transition: 0.4s;
@@ -193,6 +193,7 @@
 				color: #ffffff;
 				border-radius: 50%;
 				font-size: 45px;
+				background-color: #15475b;
 			}
 		}
 		.podCastDetails {
