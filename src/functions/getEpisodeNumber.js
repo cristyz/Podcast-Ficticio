@@ -9,20 +9,20 @@ async function getEpisodeNumber(id, setPreviousEpisode, setNextEpisode) {
             let previousEpisode
 
             e.data.episodes.forEach((epi) => {
-                if (epi.id == id) {
+                if (epi.id.toString() === id) {
                     currentEpisode = epi.episodeNumber
                 }
             })
 
             // Anterior
             e.data.episodes.forEach((epi) => {
-                if (epi.episodeNumber == currentEpisode - 1) {
+                if (epi.episodeNumber === currentEpisode - 1) {
                     previousEpisode = epi.id
                 }
             })
             // Proximo
             e.data.episodes.forEach((epi) => {
-                if (epi.episodeNumber == currentEpisode + 1) {
+                if (epi.episodeNumber === currentEpisode + 1) {
                     nextEpisode = epi.id
                 }
             })

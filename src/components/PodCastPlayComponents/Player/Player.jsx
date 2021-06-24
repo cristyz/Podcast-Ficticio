@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 
+import './Player.scss'
+
 import { Link } from "react-router-dom";
 
-import calculateTime from "../../functions/calculateTime"
+import calculateTime from "../../../functions/calculateTime"
 
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { TiArrowRightThick, TiArrowLeftThick } from 'react-icons/ti';
@@ -34,7 +36,7 @@ export default function Player({ AudioPlay, episodeDetails, nextEpisode, previou
     })
     return (
         <div className="containerPlayer">
-            <div className="countTime">
+            <div className="displayCountTime">
                 <p>{calculateTime(currentTime)}</p>
                 <div className="progressBar">
                     <div style={{ width: `${currentTime / AudioPlay?.current?.duration * 100}%` }} className="progressBarTime"></div>
@@ -51,7 +53,7 @@ export default function Player({ AudioPlay, episodeDetails, nextEpisode, previou
             <audio ref={AudioPlay} src={episodeDetails.audio} ></audio>
 
 
-            <div className="playerButtons">
+            <div className="displayButtons">
                 {previousEpisode === undefined ? null :
                     <Link to={'/' + previousEpisode} className="secondsButtons">
                         <TiArrowLeftThick />

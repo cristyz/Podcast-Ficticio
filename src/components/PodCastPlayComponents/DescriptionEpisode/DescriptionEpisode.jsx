@@ -1,7 +1,8 @@
 import { useState } from "react"
 
-import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import './DescriptionEpisode.scss'
 
+import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 
 export default function DescriptionEpisode({ episodeDetails }) {
 
@@ -9,11 +10,9 @@ export default function DescriptionEpisode({ episodeDetails }) {
 
     return (
         <div className="podCastDetails">
-
             <img src={episodeDetails.cover} alt='Banner' />
-
             <div className="podCastTexts">
-                <div className="descriptionPodCast">
+                <div className="PodCastDescription">
                     <h1>Episódio {episodeDetails.episodeNumber} - {episodeDetails.name}</h1>
                     <div style={{
                         height: readMore ? '50%' : '47px',
@@ -23,7 +22,7 @@ export default function DescriptionEpisode({ episodeDetails }) {
                         {/* Transforma a descrição em um array dividido pelos '.' e adiciona a ela quebra de linha */}
                         {episodeDetails.description.split('.').slice(0, -1).map(e => <span key={e}>  {e + '.'} <br></br> <br></br> </span>)} {episodeDetails.description.split('.').slice(-1).map(e => <span key={e}> {e} </span>)}
                     </div>
-                    <p className="lermais" onClick={() => {
+                    <p className="readMode" onClick={() => {
                         setReadMore(!readMore)
                     }}>Ler {readMore ? 'menos' : 'mais'} {readMore ? <BsChevronUp /> : <BsChevronDown />}</p>
                     <p className='participantes'>
@@ -35,6 +34,5 @@ export default function DescriptionEpisode({ episodeDetails }) {
                 </div>
             </div>
         </div>
-
     )
 }

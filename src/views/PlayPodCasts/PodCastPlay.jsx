@@ -11,8 +11,8 @@ import getEpisodeDetails from '../../functions/getEpisodeDetails';
 import getEpisodeNumber from '../../functions/getEpisodeNumber';
 
 // Components
-import DescriptionEpisode from '../../components/PodCastPlay/DescriptionEpisode';
-import Player from '../../components/PodCastPlay/Player';
+import DescriptionEpisode from '../../components/PodCastPlayComponents/DescriptionEpisode/DescriptionEpisode';
+import Player from '../../components/PodCastPlayComponents/Player/Player';
 import LoaderComponent from '../../components/LoaderComponent/LoaderComponent';
 
 const PodCastPlay = () => {
@@ -35,21 +35,16 @@ const PodCastPlay = () => {
 
     return (
         <div className="containerPodCastPlayer" >
-
             <Link to='/' className="closetButton"><IoMdClose /></Link>
-
             {episodeDetails ?
-
                 <>
                     <DescriptionEpisode episodeDetails={episodeDetails} />
 
                     <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} nextEpisode={nextEpisode} previousEpisode={previousEpisode} />
                 </>
-
                 :
                 <LoaderComponent />
             }
-
         </div>
     )
 }

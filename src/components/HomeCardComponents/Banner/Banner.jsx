@@ -1,4 +1,6 @@
-export default function Banner({data}) {
+import './Banner.scss'
+
+export default function Banner({ data }) {
     return (
         <div className="banner">
             <img src={data?.cover} alt="Cover" />

@@ -11,96 +11,6 @@
 	position: relative;
 	flex-direction: column;
 
-	.containerPlayer {
-		display: flex;
-
-		audio {
-			background-color: red;
-		}
-
-		.playerButtons {
-			width: 80%;
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			align-self: center;
-
-			.playButton {
-				background-color: #2fa0d0;
-				padding: 20px;
-				border-radius: 50%;
-				border: none;
-				display: flex;
-				color: #ffffff;
-				cursor: pointer;
-				svg {
-					font-size: 25px;
-				}
-			}
-
-			.secondsButtons {
-				background-color: #ffffff;
-				padding: 10px;
-				border-radius: 50%;
-				border: none;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: #2fa0d0;
-				cursor: pointer;
-				svg {
-					font-size: 20px;
-				}
-			}
-		}
-		.countTime {
-			display: flex;
-			min-width: 520px;
-			align-items: center;
-			justify-content: center;
-			p {
-				color: #ffffff80;
-			}
-			.progressBar {
-				width: 90%;
-				height: 6px;
-				position: relative;
-				border-radius: 4px;
-				background-color: #ffffff33;
-				margin: 0 12px;
-
-				.InputProgressBar {
-					position: absolute;
-					bottom: -4px;
-					left: 0;
-					width: 100%;
-					cursor: pointer;
-					opacity: 0;
-				}
-
-				.progressBarTime {
-					position: absolute;
-					width: 50%;
-					left: 0;
-					top: 0;
-					height: 6px;
-					background-color: #2fa0d0;
-					border-radius: 4px;
-					// transition: .2s;
-				}
-			}
-		}
-	}
-
-	.podCastTexts {
-		.participantes {
-			margin-top: 24px;
-			color: #ffffff93;
-			font-size: 13px;
-			font-style: italic;
-		}
-	}
-
 	.closetButton {
 		position: absolute;
 		right: 20px;
@@ -113,74 +23,6 @@
 		align-items: center;
 		color: #ffffff;
 	}
-	.podCastDetails {
-		display: flex;
-		height: 310px;
-		img {
-			width: 250px;
-			height: 250px;
-			border-radius: 4px;
-			object-fit: cover;
-		}
-
-		.podCastTexts {
-			height: 250px;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			overflow: scroll;
-			&::-webkit-scrollbar {
-				display: none;
-			}
-		}
-
-		.descriptionPodCast {
-			height: 100%;
-			margin: 0 24px;
-			p:nth-child(1) {
-				color: #ffffff93;
-				font-size: 8px;
-				letter-spacing: 2px;
-				margin-bottom: 11px;
-				cursor: inherit;
-				font-style: normal;
-			}
-			h1 {
-				width: 380px;
-				color: #ffffff;
-			}
-			div {
-				color: #ffffff93;
-				font-weight: 500;
-				font-style: italic;
-				margin-top: 20px;
-				width: 85%;
-				overflow: hidden;
-				transition: 0.4s;
-				background: linear-gradient(
-					to top,
-					rgba(45, 86, 103, 0.7) 3%,
-					#2d566700 10%
-				);
-				&::-webkit-scrollbar {
-					display: none;
-				}
-			}
-			.lermais {
-				color: #4dc1f2;
-				font-style: italic;
-				margin-top: 8px;
-				width: 100px;
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-
-				svg {
-					margin-left: 5px;
-				}
-			}
-		}
-	}
 }
 
 @media (max-width: 800px) {
@@ -190,17 +32,6 @@
 		padding: 0;
 		position: relative;
 
-		.containerPlayer{
-			.playerButtons{ 
-				justify-content: center;
-				
-				.playButton{
-					margin: 0 30px;
-				}
-	
-			}
-		}
-
 		.closetButton {
 			svg {
 				color: #ffffff;
@@ -209,51 +40,5 @@
 				background-color: #15475b;
 			}
 		}
-		.podCastDetails {
-			flex-direction: column;
-			width: 100%;
-			justify-content: center;
-			align-items: center;
-			height: unset;
-			img {
-				height: unset;
-				width: 100%;
-				height: 264px;
-			}
-
-			.descriptionPodCast {
-				h1 {
-					width: 100%;
-					font-size: 18px;
-					margin: 20px 0;
-				}
-				.participantes {
-					margin-top: 24px;
-					color: #ffffff80;
-				}
-			}
-		}
-
-		.containerPlayer {
-			flex-direction: column;
-			position: absolute;
-			justify-content: space-evenly;
-			bottom: 0;
-			background: #15475b;
-			width: 100%;
-			height: 150px;
-			.countTime {
-				min-width: 80%;
-				width: 100%;
-
-				.progressBar {
-					width: 60%;
-				}
-			}
-		}
-	}
-	body {
-		justify-content: unset;
-		align-items: unset;
 	}
 }
