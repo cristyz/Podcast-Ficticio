@@ -39,21 +39,17 @@ const PodCastPlay = () => {
             <Link to='/' className="closetButton"><IoMdClose /></Link>
 
             {episodeDetails ?
-                (
-                    <>
-                    <div className="podCastDetails">
-                        <img src={episodeDetails.cover} alt='Banner' />
 
-                        <DescriptionEpisode episodeDetails={episodeDetails} />
+                <>
+                    <DescriptionEpisode episodeDetails={episodeDetails} />
 
-                    </div>
                     <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} nextEpisode={nextEpisode} previousEpisode={previousEpisode} />
-                    </>
-                ) 
+                </>
+
                 :
                 <LoaderComponent />
             }
-            
+
         </div>
     )
 }

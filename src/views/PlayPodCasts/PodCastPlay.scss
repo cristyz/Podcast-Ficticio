@@ -94,7 +94,7 @@
 
 	.podCastTexts {
 		.participantes {
-			margin: 24px 0;
+			margin-top: 24px;
 			color: #ffffff93;
 			font-size: 13px;
 			font-style: italic;
@@ -135,6 +135,7 @@
 		}
 
 		.descriptionPodCast {
+			height: 100%;
 			margin: 0 24px;
 			p:nth-child(1) {
 				color: #ffffff93;
@@ -148,7 +149,7 @@
 				width: 380px;
 				color: #ffffff;
 			}
-			h4 {
+			div {
 				color: #ffffff93;
 				font-weight: 500;
 				font-style: italic;
@@ -169,6 +170,7 @@
 				color: #4dc1f2;
 				font-style: italic;
 				margin-top: 8px;
+				width: 100px;
 				cursor: pointer;
 				display: flex;
 				align-items: center;
@@ -187,6 +189,17 @@
 		height: 100%;
 		padding: 0;
 		position: relative;
+
+		.containerPlayer{
+			.playerButtons{ 
+				justify-content: center;
+				
+				.playButton{
+					margin: 0 30px;
+				}
+	
+			}
+		}
 
 		.closetButton {
 			svg {
@@ -215,7 +228,7 @@
 					margin: 20px 0;
 				}
 				.participantes {
-					margin: 24px 0;
+					margin-top: 24px;
 					color: #ffffff80;
 				}
 			}
