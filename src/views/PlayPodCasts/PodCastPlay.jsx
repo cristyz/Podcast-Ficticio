@@ -83,18 +83,19 @@ const PodCastPlay = () => {
     }, [id])
 
     return (
-        <div className="containerPodCastPlayer" >
-            <Link to='/' className="closetButton"><IoMdClose /></Link>
+        <>
             {episodeDetails ?
                 <>
-                    <DescriptionEpisode episodeDetails={episodeDetails} />
-
+                    <div className="containerPodCastPlayer" >
+                        <Link to='/' className="closetButton"><IoMdClose /></Link>
+                        <DescriptionEpisode episodeDetails={episodeDetails} />
+                    </div>
                     <Player AudioPlay={AudioPlay} episodeDetails={episodeDetails} nextEpisode={nextEpisode} previousEpisode={previousEpisode} />
                 </>
-                :
-                <LoaderComponent />
+                : <LoaderComponent />
+
             }
-        </div>
+        </>
     )
 }
 

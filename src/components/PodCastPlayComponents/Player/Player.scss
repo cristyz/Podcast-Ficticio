@@ -1,5 +1,9 @@
 .containerPlayer {
 	display: flex;
+	background: #15475B;
+	width: 768px;
+	height: 108px;
+	border-radius: 0 0 10px 10px;
 
 	.displayButtons {
 		width: 80%;
@@ -41,6 +45,7 @@
 		min-width: 520px;
 		align-items: center;
 		justify-content: center;
+		margin-left: 40px;
 		p {
 			color: #ffffff80;
 		}
@@ -88,6 +93,8 @@
 		.displayCountTime {
 			min-width: 80%;
 			width: 100%;
+			margin-left: 0;
+
 
 			.progressBar {
 				width: 60%;

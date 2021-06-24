@@ -9,7 +9,7 @@
 	}
 
 	.podCastTexts {
-		height: 230px;
+		height: 240px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -28,7 +28,8 @@
 
 	.PodCastDescription {
 		height: 100%;
-		margin: 0 24px;
+		margin-left: 35px;
+		margin-right: 24px;
 		p:nth-child(1) {
 			color: #ffffff93;
 			font-size: 8px;
@@ -38,13 +39,15 @@
 			font-style: normal;
 		}
 		h1 {
-			width: 380px;
 			color: #ffffff;
+			font-size: 24px;
 		}
 		div {
-			color: #ffffff93;
-			font-weight: 500;
-			font-style: italic;
+			span{
+				color: #fff;
+				font-weight: 500;
+				font-size: 14px;
+			}
 			margin-top: 20px;
 			width: 85%;
 			overflow: hidden;
@@ -88,7 +91,7 @@
 				height: 264px;
 			}
 
-			.descriptionPodCast {
+			.PodCastDescription {
 				h1 {
 					width: 100%;
 					font-size: 18px;

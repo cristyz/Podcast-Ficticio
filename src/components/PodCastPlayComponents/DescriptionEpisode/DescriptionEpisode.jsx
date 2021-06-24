@@ -15,7 +15,7 @@ export default function DescriptionEpisode({ episodeDetails }) {
                 <div className="PodCastDescription">
                     <h1>Episódio {episodeDetails.episodeNumber} - {episodeDetails.name}</h1>
                     <div style={{
-                        height: readMore ? '50%' : '47px',
+                        height: readMore ? '80%' : '20%',
                         background: readMore ? 'none' : null,
                         overflow: readMore ? 'scroll' : null
                     }}>
